@@ -1,0 +1,4 @@
+    - name: Removing containers
+      command: docker container rm "{{ item.split(' ')[0]}}"
+      loop: "{{ docker_images.stdout_lines}}"
+

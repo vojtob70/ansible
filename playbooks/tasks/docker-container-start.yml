@@ -1,0 +1,4 @@
+    - name: Starting containers
+      command: docker container start "{{ item.split(' ')[0]}}"
+      loop: "{{ docker_images.stdout_lines}}"
+

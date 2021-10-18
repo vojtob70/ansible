@@ -1,0 +1,7 @@
+---
+  - hosts: localhost
+    tasks:
+      - name: Update apt-get repo and cache
+        include: tasks/system-update.yml
+      - name: Upgrade all apt packages
+        include: tasks/system-upgrade.yml  

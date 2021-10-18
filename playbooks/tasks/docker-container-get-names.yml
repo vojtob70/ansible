@@ -1,0 +1,4 @@
+    - name: Getting container names
+      command: docker container ls -a --format "{{ '{{' }}.Names {{ '}}' }} {{ '{{' }}.Image {{ '}}' }}"
+      register: docker_images
+

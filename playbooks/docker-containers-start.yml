@@ -1,0 +1,8 @@
+---
+- hosts: localhost
+  gather_facts: no
+  tasks:
+    - name: Getting images name
+      include: tasks/docker-container-get-names.yml 
+    - name: Starting images
+      include: tasks/docker-container-start.yml

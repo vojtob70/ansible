@@ -1,0 +1,3 @@
+      - name: Upgrade all apt packages
+        become: yes
+        apt: upgrade=dist force_apt_get=yes  

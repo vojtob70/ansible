@@ -1,0 +1,4 @@
+    - name: Removing images
+      command: docker rmi "{{ item.split(' ')[1]}}"
+      loop: "{{ docker_images.stdout_lines}}"
+

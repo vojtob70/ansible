@@ -1,0 +1,3 @@
+    - name: Restarting containers
+      command: docker container restart "{{ item.split(' ')[0]}}"
+      loop: "{{ docker_images.stdout_lines}}"

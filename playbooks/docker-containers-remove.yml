@@ -1,0 +1,13 @@
+---
+- name: Creating docker containers
+  hosts: localhost
+  gather_facts: no
+  tasks:
+    - name: Getting images name
+      include: tasks/docker-container-get-names.yml 
+    - name: Stoping images
+      include: tasks/docker-container-stop.yml
+    - name: Removing containers
+      include: tasks/docker-container-rm.yml
+    - name: Removing images
+      include: tasks/docker-container-rmi.yml
