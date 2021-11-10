@@ -29,12 +29,18 @@ a doplnit na koniec suboru:
         disown
     fi
 
+vytvor docker volume pre portainer: (https://docs.docker.com/engine/reference/commandline/volume_create/)
+
+    docker volume create portainer_data
+
+vytvorenie portainer kontajnera bez ansible, iba ako dockewr nasadenie - https://docs.portainer.io/v/ce-2.9/start/install/server/docker/linux
+
+a pomocou ansible:
+
     sudo ansible-playbook ./playbooks/docker-containers-create.yml --connection=local
 Su vytvorene 3 docker konrajnery:
 
 http://localhost:9000   -> portainer
-
-http://localhost:9999   -> heimdall
 
 a watchtower bez dostupnosti URL
 

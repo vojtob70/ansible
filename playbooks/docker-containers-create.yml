@@ -9,16 +9,9 @@
         image: containrrr/watchtower:latest
         volumes:
           - /var/run/docker.sock:/var/run/docker.sock
+        restart_policy: unless-stopped
         #env: 
         #  PATH: "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
-    - name: Create heimdall
-      docker_container:
-        name: heimdall
-        image: linuxserver/heimdall:latest
-        ports:
-          - 9999:80
-        volumes:
-          - /home/vojto/portainer/Files/AppData/Config/Heimdall:/config
     - name: Create portainer
       docker_container:
         name: portainer
@@ -26,6 +19,6 @@
         ports:
           - 9000:9000
         volumes:
-          - /home/vojto/portainer/data:/data
+          - portainer_data:/data
           - /var/run/docker.sock:/var/run/docker.sock
         restart_policy: unless-stopped
