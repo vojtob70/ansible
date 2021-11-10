@@ -1,6 +1,7 @@
 # Ansible na WSL2
 
 ### Prereq:
+treba aktivovat WSL2 vo Windows
 cez windows power shell v admin rezime:
 
     wsl --install -d Ubuntu
@@ -13,14 +14,18 @@ cez windows power shell v admin rezime:
     ansible-playbook ./playbooks/system-update.yml --connection=local
     ansible-playbook ./playbooks/set-sudoers.yml --connection=local
     ansible-playbook ./playbooks/docker-install.yml --connection=local
+
 sudo visudo a doplnit na posledny riadok, miesto "vojto" vlozit login daneho usera
     
     sudo visudo
     
     vojto ALL=(ALL) NOPASSWD: /usr/bin/dockerd
 
+otvorit subor .bashrc
+
     vi .bashrc  
-a doplnit na koniec suboru:
+
+ a doplnit na koniec suboru:
 
     # Start Docker daemon automatically when logging in if not running.
     RUNNING=`ps aux | grep dockerd | grep -v grep | grep -v sudo`
@@ -33,12 +38,12 @@ vytvor docker volume pre portainer: (https://docs.docker.com/engine/reference/co
 
     docker volume create portainer_data
 
-vytvorenie portainer kontajnera bez ansible, iba ako dockewr nasadenie - https://docs.portainer.io/v/ce-2.9/start/install/server/docker/linux
+vytvorenie portainer kontajnera bez ansible, iba ako docker nasadenie - https://docs.portainer.io/v/ce-2.9/start/install/server/docker/linux
 
 a pomocou ansible:
 
     sudo ansible-playbook ./playbooks/docker-containers-create.yml --connection=local
-Su vytvorene 3 docker konrajnery:
+Su vytvorene 2 docker konrajnery:
 
 http://localhost:9000   -> portainer
 
