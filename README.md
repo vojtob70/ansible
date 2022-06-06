@@ -1,4 +1,4 @@
-# Ansible na WSL2-1
+# Ansible na WSL2
 
 ### Prereq:
 treba aktivovat WSL2 vo Windows
